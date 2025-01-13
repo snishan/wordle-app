@@ -1,4 +1,4 @@
-@import '../../assets/scss/variables';
+@use '../../assets/scss/variables' as *;
 
 .result-modal {
   .ant-modal-content {

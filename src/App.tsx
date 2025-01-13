@@ -1,4 +1,5 @@
 import { useState, useCallback, useEffect } from 'react';
+import isEmpty from 'lodash/isEmpty';
 import { Row, Col, Input, message, Spin } from 'antd';
 import { InfoCircleTwoTone } from '@ant-design/icons';
 import { InputTypes } from './helper/types/types';
@@ -48,7 +49,7 @@ function App() {
 
     if (keyboardValue.find((data) => data.letter == '')) {
       warning();
-      return
+      return;
     }
     const result = await checkWord(currentWord, keyboardValue);
 
@@ -87,42 +88,48 @@ function App() {
   return (
     isLoading ? <Spin tip="Loading" className='main-loader' size="large">
       {"Loading.."}
-    </Spin> : <Row justify="space-between" className="main-page">
-      <Col sm={24} className="right-side">
-        <img src={Logo} className='logo-image' alt='logo' />
-        <InfoCircleTwoTone onClick={() => setShowIntro(true)} className='information-icon' twoToneColor="#1890ff" />
-        <Row justify="center" gutter={16} className="input-section">
-          {keyboardValue.map((value, index) => (
-            <Input key={index} value={value.letter} readOnly />
-          ))}
-        </Row>
+    </Spin> :
 
-        <Row className="mt-8">
-          <VirtualKeyboard
-            onInputChange={handleKeyboardInput}
-            onBackspace={handleBackspace}
-            onEnter={handleEnter}
-            clearAll={handleNewGame}
-          />
-        </Row>
-
-        <Row className="details-section mt-8">
-          <Col span={24} className="text-center text-gray-600">
-            <GuessesList guessesList={guessesList} />
+      <div className="main-page">
+        <Row justify="center" className="right-side">
+          <Col sm={1}>
+            <img src={Logo} className='logo-image' alt='logo' />
           </Col>
-        </Row>
-      </Col>
+          <Col sm={isEmpty(guessesList)?22:15}>
+            <Row justify="center" gutter={16} className="input-section">
+              {keyboardValue.map((value, index) => (
+                <Input key={index} value={value.letter} readOnly />
+              ))}
+            </Row>
+            <Row className="mt-8">
+              <VirtualKeyboard
+                onInputChange={handleKeyboardInput}
+                onBackspace={handleBackspace}
+                onEnter={handleEnter}
+                clearAll={handleNewGame}
+              />
+            </Row>
+          </Col>
+          <Col sm={isEmpty(guessesList)?1:8}>
+            <InfoCircleTwoTone onClick={() => setShowIntro(true)} className='information-icon' twoToneColor="#1890ff" />
+             <Row justify="center" gutter={16} className="details-section mt-8">
+              <Col span={24} className="text-center text-gray-600">
+                <GuessesList guessesList={guessesList} />
+              </Col>
+            </Row>
+          </Col>
 
-      <CommonModal
-        isVisible={isModalVisible}
-        onClose={() => setIsModalVisible(false)}
-        message={isWonState ? "Congratulations!" : "You are lost!"}
-        subMessage={isWonState ? "You won the game!" : `Correct word is: ${currentWord}`}
-        onNewGame={() => handleNewGame()}
-        isWonState={isWonState}
-      />
-      <UserIntroduction showIntro={showIntro} handleCloseInfo={() => setShowIntro(false)} />
-    </Row>
+        </Row>
+        <CommonModal
+          isVisible={isModalVisible}
+          onClose={() => setIsModalVisible(false)}
+          message={isWonState ? "Congratulations!" : "You are lost!"}
+          subMessage={isWonState ? "You won the game!" : `Correct word is: ${currentWord}`}
+          onNewGame={() => handleNewGame()}
+          isWonState={isWonState}
+        />
+        <UserIntroduction showIntro={showIntro} handleCloseInfo={() => setShowIntro(false)} />
+      </div>
   );
 }
 

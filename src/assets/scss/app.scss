@@ -10,6 +10,7 @@
         background: var(--right-side-gradient);
         box-shadow: 0 8px 32px var(--box-shadow-color);
         backdrop-filter: blur(4px);
+        height: 100vh;
 
         .input-section {
             height: 40vh;
@@ -45,8 +46,8 @@
     }
 
     .details-section {
-        position: absolute;
-        right: 10vw;
+        position: relative;
+        // right: 0vw;
         top: 20%;
 
         .detail-card {

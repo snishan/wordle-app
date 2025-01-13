@@ -11,8 +11,6 @@ interface VirtualKeyboardProps {
   clearAll:() => void;
 }
 
-
-
 const VirtualKeyboard: React.FC<VirtualKeyboardProps> = ({ onInputChange,onBackspace,onEnter,clearAll }) => {
   const [inputValue, setInputValue] = useState<string>('');
   
@@ -42,7 +40,7 @@ const VirtualKeyboard: React.FC<VirtualKeyboardProps> = ({ onInputChange,onBacks
         setInputValue('')
         break;
       default:
-        setInputValue(prev => prev + key);
+        setInputValue(prev => prev.length < 5 ? (prev + key) : prev);
     }
   };
 
