@@ -1,0 +1,63 @@
+@import '../../assets/scss/variables';
+
+.user-intro-modal {
+    .intro-container {
+      padding: 24px;
+      
+      .intro-steps {
+        margin-bottom: 32px;
+      }
+      
+      .intro-content {
+        margin-bottom: 24px;
+        text-align: start;
+        
+        .intro-image {
+          width: 100%;
+          height: 240px;
+          object-fit: cover;
+          border-radius: 8px;
+          margin-bottom: 24px;
+        }
+        
+        .intro-title {
+          margin-bottom: 16px;
+          color: $title-color;
+        }
+        
+        .intro-description {
+          font-size: 16px;
+          color: $intro-description-color;
+          max-width: 600px;
+          margin: 0 auto;
+        }
+      }
+      
+      .intro-footer {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        
+        .navigation-buttons {
+          display: flex;
+          gap: 12px;
+        }
+        
+        .skip-button {
+          color: $text-color;
+        }
+        
+        .prev-button {
+          margin-right: 8px;
+        }
+        
+        .next-button {
+          min-width: 100px;
+        }
+      }
+    }
+    .complete-option-images{
+        height: 40px;
+    }
+  }
+  

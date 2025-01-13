@@ -1,0 +1,104 @@
+@import '../../assets/scss/variables';
+
+.virtual-keyboard {
+    padding: 24px;
+    background: linear-gradient(135deg, $background-light 0%, $background-secondary 100%);
+    border-radius: 16px;
+    max-width: 800px;
+    margin: 0 auto;
+    box-shadow: 0 8px 32px $shadow-color;
+  
+    .input-area {
+      margin-bottom: 24px;
+  
+      .ant-input {
+        font-size: 18px;
+        padding: 12px;
+        border: 2px solid $border-color;
+        border-radius: 8px;
+      }
+    }
+  
+    .keyboard-container {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+  
+    .keyboard-row {
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+    }
+  
+    .key-button {
+      width: 48px;
+      height: 48px;
+      font-size: 18px;
+      font-weight: 500;
+      border-radius: 8px;
+      border: 1px solid $border-color;
+      background: white;
+      transition: all 0.3s;
+      box-shadow: 0 8px 32px $shadow-color;
+      &:hover {
+        background: $hover-color;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+      }
+  
+      &:active {
+        transform: translateY(0);
+      }
+    }
+  
+    .action-row {
+      margin-top: 16px;
+    }
+  
+    .action-button {
+      width: 120px;
+      height: 48px;
+      font-size: 16px;
+      font-weight: 500;
+      border-radius: 8px;
+      transition: all 0.3s;
+  
+      .anticon {
+        margin-right: 8px;
+      }
+    }
+  
+    .enter-button {
+      background: $primary-color;
+      border-color: $primary-color;
+      color: white;
+  
+      &:hover {
+        background: $secondary-color;
+        border-color: $secondary-color;
+        transform: translateY(-2px);
+        box-shadow: 0 2px 6px rgba(24, 144, 255, 0.2);
+      }
+  
+      &:active {
+        transform: translateY(0);
+      }
+    }
+  
+    .remove-button {
+      background: $error-color;
+      border-color: $error-color;
+      color: white;
+  
+      &:hover {
+        background: #ff7875;
+        border-color: #ff7875;
+        transform: translateY(-2px);
+        box-shadow: 0 2px 6px rgba(255, 77, 79, 0.2);
+      }
+  
+      &:active {
+        transform: translateY(0);
+      }
+    }
+}

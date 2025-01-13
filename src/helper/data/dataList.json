@@ -1,0 +1,35 @@
+{
+    "initialData":[
+    {
+        "letter":"",
+        "isRightLetterAndRightPosition":false,
+        "isRightLetterAndWrongPosition":false,
+        "isWrongLetter":false
+    },
+    {
+        "letter":"",
+        "isRightLetterAndRightPosition":false,
+        "isRightLetterAndWrongPosition":false,
+        "isWrongLetter":false
+    },
+    {
+        "letter":"",
+        "isRightLetterAndRightPosition":false,
+        "isRightLetterAndWrongPosition":false,
+        "isWrongLetter":false
+    },
+    {
+        "letter":"",
+        "isRightLetterAndRightPosition":false,
+        "isRightLetterAndWrongPosition":false,
+        "isWrongLetter":false
+    },
+    {
+        "letter":"",
+        "isRightLetterAndRightPosition":false,
+        "isRightLetterAndWrongPosition":false,
+        "isWrongLetter":false
+    }
+    ]
+
+}
