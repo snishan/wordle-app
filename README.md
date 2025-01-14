@@ -1,6 +1,6 @@
 # Wordle App
 
-A modern, interactive Wordle game built with **React**, **Vite**, and **Ant Design**. Enjoy a seamless and responsive gaming experience with a clean and intuitive interface.
+A modern, interactive "Wordle" game built with **React**, **Vite**, and **Ant Design**. Enjoy a seamless and responsive gaming experience with a clean and intuitive interface.
 
 <img width="936" alt="game-img-07" src="https://github.com/user-attachments/assets/9bb3e2d8-be42-4bb9-87a9-047a65779fcd" />
 
@@ -66,7 +66,7 @@ A modern, interactive Wordle game built with **React**, **Vite**, and **Ant Desi
   - Green: Correct letter in the correct position.
   - Yellow: Correct letter in the wrong position.
   - Gray: Letter not in the word.
-  - 
+    
 
 ### Confetti Celebration
 - Celebrate your wins with a fun confetti animation powered by `react-confetti`.
