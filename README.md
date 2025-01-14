@@ -2,7 +2,8 @@
 
 A modern, interactive Wordle game built with **React**, **Vite**, and **Ant Design**. Enjoy a seamless and responsive gaming experience with a clean and intuitive interface.
 
-<img width="948" alt="wordle-app" src="https://github.com/user-attachments/assets/80a84add-df54-457c-bd09-fec72095e500" />
+<img width="936" alt="game-img-07" src="https://github.com/user-attachments/assets/9bb3e2d8-be42-4bb9-87a9-047a65779fcd" />
+
 
 ## 🌟 Features
 
@@ -42,19 +43,19 @@ A modern, interactive Wordle game built with **React**, **Vite**, and **Ant Desi
    ```bash
    git clone https://github.com/your-username/wordle-app.git
    cd wordle-app
-   npm install
+   yarn install
    ```
 
 2. Start the development server:
    ```bash
-   npm run dev
+   yarn  dev
    ```
 
 3. Open your browser and navigate to `http://localhost:5173` to view the app.
 
 4. To run tests:
    ```bash
-   npm test
+   yarn test
    ```
 
 ## 💻 Key Features
@@ -65,11 +66,7 @@ A modern, interactive Wordle game built with **React**, **Vite**, and **Ant Desi
   - Green: Correct letter in the correct position.
   - Yellow: Correct letter in the wrong position.
   - Gray: Letter not in the word.
-
-### Responsive Design
-- Fully responsive layout optimized for:
-  - Desktop (1024px and above)
-  - Tablet (768px to 1023px)
+  - 
 
 ### Confetti Celebration
 - Celebrate your wins with a fun confetti animation powered by `react-confetti`.
@@ -93,11 +90,6 @@ A modern, interactive Wordle game built with **React**, **Vite**, and **Ant Desi
 - [ ] Add support for multiple languages.
 - [ ] Responsive design for mobile.
 
-## 📱 Responsive Design
-
-Fully responsive layout optimized for:
-- Desktop (1024px and above)
-- Tablet (768px to 1023px)
 
 ## Acknowledgments
 
@@ -109,4 +101,4 @@ Fully responsive layout optimized for:
 
 ## LIVE LINK
 
-[Wordle App Live Demo](#) *(Replace with your live link)*
+[Wordle App Live Demo](#) *(https://wordle-app-psi.vercel.app)*
