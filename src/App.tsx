@@ -1,4 +1,3 @@
-import React from 'react';
 import { useState, useCallback, useEffect } from 'react';
 import isEmpty from 'lodash/isEmpty';
 import { Row, Col, Input, message, Spin, Tooltip } from 'antd';
