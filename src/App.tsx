@@ -1,6 +1,7 @@
+import React from 'react';
 import { useState, useCallback, useEffect } from 'react';
 import isEmpty from 'lodash/isEmpty';
-import { Row, Col, Input, message, Spin } from 'antd';
+import { Row, Col, Input, message, Spin, Tooltip } from 'antd';
 import { InfoCircleTwoTone } from '@ant-design/icons';
 import { InputTypes } from './helper/types/types';
 import { AssignValues, getRandomWord, loadWordsSync, checkWord } from './helper/commonFunctions';
@@ -85,6 +86,10 @@ function App() {
     });
   };
 
+  const handleClearAll=()=>{
+    handleKeyboardInput('')
+  }
+
   return (
     isLoading ? <Spin tip="Loading" className='main-loader' size="large">
       {"Loading.."}
@@ -95,7 +100,7 @@ function App() {
           <Col sm={1}>
             <img src={Logo} className='logo-image' alt='logo' />
           </Col>
-          <Col sm={isEmpty(guessesList)?22:15}>
+          <Col sm={isEmpty(guessesList) ? 22 : 15}>
             <Row justify="center" gutter={16} className="input-section">
               {keyboardValue.map((value, index) => (
                 <Input key={index} value={value.letter} readOnly />
@@ -106,13 +111,15 @@ function App() {
                 onInputChange={handleKeyboardInput}
                 onBackspace={handleBackspace}
                 onEnter={handleEnter}
-                clearAll={handleNewGame}
+                clearAll={handleClearAll}
               />
             </Row>
           </Col>
-          <Col sm={isEmpty(guessesList)?1:8}>
-            <InfoCircleTwoTone onClick={() => setShowIntro(true)} className='information-icon' twoToneColor="#1890ff" />
-             <Row justify="center" gutter={16} className="details-section mt-8">
+          <Col sm={isEmpty(guessesList) ? 1 : 8}>
+            <Tooltip placement="bottom" title="See Quick Introduction">
+              <InfoCircleTwoTone onClick={() => setShowIntro(true)} className='information-icon' twoToneColor="#1890ff" />
+            </Tooltip>
+            <Row justify="center" gutter={16} className="details-section mt-8">
               <Col span={24} className="text-center text-gray-600">
                 <GuessesList guessesList={guessesList} />
               </Col>

@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { Modal, Steps, Button, Card, Typography } from 'antd';
 import { UserOutlined, CheckCircleOutlined, RocketOutlined } from '@ant-design/icons';
-import Img1 from '../../assets/images/game-img-01.png'
+import Img1 from '../../assets/images/game-img-07.png'
 import Img2 from '../../assets/images/game-img-03.png'
 import Img3 from '../../assets/images/game-img-04.png'
 import Img4 from '../../assets/images/game-img-05.png'
 import Img5 from '../../assets/images/game-img-06.png'
+import Img6 from '../../assets/images/game-img-08.png'
 import './styles.scss';
 
 const { Title, Paragraph } = Typography;
@@ -39,7 +40,7 @@ const UserIntroduction:React.FC<IntroProps>= ({showIntro,handleCloseInfo}) => {
       icon: <UserOutlined />,
       content: {
         title: 'Welcome to Wordle!',
-        description: 'We re excited to have you here. Let s get you started with a quick tour.',
+        description: `We're thrilled to have you here! Let's kick things off with a quick tour.`,
         image: Img1
       }
     },
@@ -58,7 +59,7 @@ const UserIntroduction:React.FC<IntroProps>= ({showIntro,handleCloseInfo}) => {
           <li>Use "Remove" to delete letters one at a time.</li>
         </ul>
         </> ,
-        image: Img1
+        image: Img6
       }
     },
     {

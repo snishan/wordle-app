@@ -24,36 +24,45 @@ export const getRandomWord = (words: string[]): string => {
 
 // This is check the user input word and correct word comparison
 export const checkWord = (currentWord: string, dataArray: { letter: string }[]) => {
-  const word = [...currentWord];
-  const usedIndices = new Set<number>();
+  const word = currentWord.split('');
+  const letterCount = new Map<string, number>();
+  
+  // Count occurrences of each letter in the target word
+  word.forEach(letter => {
+    letterCount.set(letter, (letterCount.get(letter) || 0) + 1);
+  });
 
-  return dataArray.map((item, index) => {
-    // Check if the letter is in the correct position
+  // First pass: Mark exact matches
+  const result = dataArray.map((item, index) => {
     if (item.letter === word[index]) {
-      usedIndices.add(index);
-      return { ...item, 
-        isRightLetterAndRightPosition: true, 
-        isRightLetterAndWrongPosition: false, 
-        isWrongLetter: false 
+      letterCount.set(item.letter, letterCount.get(item.letter)! - 1);
+      return {
+        ...item,
+        isRightLetterAndRightPosition: true,
+        isRightLetterAndWrongPosition: false,
+        isWrongLetter: false
       };
     }
-
-    // Check if the letter exists in the word but at a different position
-    const wrongPosition = word.findIndex((letter, i) => letter === item.letter && !usedIndices.has(i));
-    if (wrongPosition !== -1) {
-      usedIndices.add(wrongPosition);
-      return { ...item, 
-        isRightLetterAndRightPosition: false, 
-        isRightLetterAndWrongPosition: true, 
-        isWrongLetter: false 
-      };
-    }
-
-    // Letter is not in the word
-    return { ...item, 
-      isRightLetterAndRightPosition: false, 
-      isRightLetterAndWrongPosition: false, 
-      isWrongLetter: true 
+    return {
+      ...item,
+      isRightLetterAndRightPosition: false,
+      isRightLetterAndWrongPosition: false,
+      isWrongLetter: true
     };
   });
+
+  // Second pass: Mark letters in wrong positions
+  result.forEach((item, index) => {
+    if (!item.isRightLetterAndRightPosition && (letterCount.get(item.letter) ?? 0) > 0) {
+      letterCount.set(item.letter, letterCount.get(item.letter)! - 1);
+      result[index] = {
+        ...item,
+        isRightLetterAndRightPosition: false,
+        isRightLetterAndWrongPosition: true,
+        isWrongLetter: false
+      };
+    }
+  });
+
+  return result;
 };
