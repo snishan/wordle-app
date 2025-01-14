@@ -41,7 +41,7 @@ A modern, interactive Wordle game built with **React**, **Vite**, and **Ant Desi
 
 1. Clone the repository and install dependencies:
    ```bash
-   git clone https://github.com/your-username/wordle-app.git
+   git clone https://github.com/snishan/wordle-app.git
    cd wordle-app
    yarn install
    ```
